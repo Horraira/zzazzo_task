@@ -12,23 +12,23 @@
         <li class="breadcrumb-item">
             <a href="{% url 'dashboard:index' %}">{% trans "Home" %}</a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">{% trans "Report Form" %}</li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Report List" %}</li>
     </ol>
 </nav>
 {% endblock %}
 {% block headertext %}
-{% trans "Report Input" %}
+{% trans "User Info, Purchase and Payment List" %}
 {% endblock %}
 
 {% block dashboard_content %}
 <div class="table-header">
-    <h3><i class="fas fa-chart"></i> {% trans "Reporting Input" %}</h3>
+    <h3><i class="fas fa-chart"></i> {% trans "Report View" %}</h3>
 </div>
 
 <div class="card card-body">
 
     {% if not payment %}
-    <p>{% trans "There are no Report at the moment." %}</p>
+    <p>{% trans "There are no Data at the moment." %}</p>
     {% else %}
 
 
