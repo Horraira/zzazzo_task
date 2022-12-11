@@ -1,0 +1,22 @@
+.idea
+src/.env
+src/.env.backup
+*.pyc
+env
+venv
+virtualenv
+.code
+src/*/node_moduels
+src/*/package.lock
+Pipfile.lock
+node_modules
+package-lock.json
+
+### Django ###
+*.log
+*.pot
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3
