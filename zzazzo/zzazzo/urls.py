@@ -12,6 +12,7 @@ urlpatterns = [
                   # Nonetheless, it's often useful for debugging.
 
                   path('admin/', admin.site.urls),
+                  path('task/', apps.get_app_config('task').urls),
 
 
                   path('', include(apps.get_app_config('oscar').urls[0])),
