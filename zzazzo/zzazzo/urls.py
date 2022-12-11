@@ -12,6 +12,7 @@ urlpatterns = [
                   # Nonetheless, it's often useful for debugging.
 
                   path('admin/', admin.site.urls),
+                  path('api/', include('API.urls')),
                   path('task/', apps.get_app_config('task').urls),
 
 

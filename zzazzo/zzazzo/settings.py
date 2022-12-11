@@ -72,6 +72,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'task.apps.TaskConfig',
+    'API'
 ]
 
 SITE_ID = 1
