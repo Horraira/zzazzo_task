@@ -1,0 +1,73 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load i18n %}
+{% load product_tags %}
+
+
+{% block title %}
+{% trans "Report" %} | {{ block.super }}
+{% endblock %}
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'dashboard:index' %}">{% trans "Home" %}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Report Form" %}</li>
+    </ol>
+</nav>
+{% endblock %}
+{% block headertext %}
+{% trans "Report Input" %}
+{% endblock %}
+
+{% block dashboard_content %}
+<div class="table-header">
+    <h3><i class="fas fa-chart"></i> {% trans "Reporting Input" %}</h3>
+</div>
+
+<div class="card card-body">
+
+    {% if not payment %}
+    <p>{% trans "There are no Report at the moment." %}</p>
+    {% else %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#uId</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Img</th>
+            <th scope="col">Address</th>
+            <th scope="col">Product</th>
+            <th scope="col">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {% for report in payment %}
+        <tr>
+            <th scope="row">{{ report.purchase.user.id }}</th>
+            <td>{{ report.purchase.user.firstName }}</td>
+            <td>{{ report.purchase.user.lastName }}</td>
+            {% if not report.purchase.user.img %}
+            <td>No Image</td>
+            {% else %}
+            <td><img src="{{ report.purchase.user.img.url }}" alt="" class="border p-2"
+                     style="width: 50px; height: 70px;"></td>
+            {% endif %}
+            <td>{{ report.purchase.user.address }}</td>
+            <td>{{ report.purchase.product }}</td>
+            <td>{{ report.amount }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock dashboard_content %}

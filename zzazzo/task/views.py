@@ -6,16 +6,16 @@ from django.shortcuts import redirect, reverse, render
 
 class TaskListView(ListView):
     model = Payment
-    template_name = 'report/user_input.html'
+    template_name = 'task/report.html'
     context_object_name = 'payment'
 
 
 class PurchaseDetailsAddView(CreateView):
-    template_name = 'report/input_form.html'
+    template_name = 'task/input_form.html'
     form_class = UserForm
     purchase_form_class = PurchaseForm
     payment_form_class = PaymentForm
-    success_url = '/report/'
+    success_url = '/task/'
 
     def post(self,
              request,
@@ -34,7 +34,7 @@ class PurchaseDetailsAddView(CreateView):
             purchase.save()
             payment.purchase = purchase
             payment.save()
-            return redirect('/report/')
+            return redirect('/task/')
 
         if not purchase_form.is_valid():
             print("purchase_form")
